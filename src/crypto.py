@@ -1,9 +1,9 @@
 """Primitive crittografiche e serializzazione canonica per le firme.
 
 Lo schema di firma, denotato Sign_PR(H(x)), e' istanziato concretamente con
-RSA-PSS (MGF1-SHA256, salt di 32 byte): una forma probabilistica e provabilmente
-sicura (Random Oracle Model) dello schema hash-and-sign. SHA-256 e' l'hash
-interno, applicato UNA SOLA VOLTA:
+RSA-PSS (MGF1-SHA256): una forma probabilistica e provabilmente sicura (Random
+Oracle Model) dello schema hash-and-sign.  SHA-256 e' l'hash interno, applicato
+UNA SOLA VOLTA:
 
     Sign_PR(H(x))  ==  RSA-PSS-Sign(PR, x)   con SHA-256
 
@@ -37,9 +37,9 @@ NONCE_BYTES = 32
 # Codifica del voto i in {1..N}: intero big-endian a larghezza fissa prima di OAEP.
 VOTE_INT_WIDTH = 4
 
-# salt_length = 32 (= lunghezza del digest SHA-256): valore deterministico, la
-# firma resta di 256 byte.
-_PSS = padding.PSS(mgf=padding.MGF1(hashes.SHA256()), salt_length=32)
+# RSA-PSS con salt di lunghezza massima (padding.PSS.MAX_LENGTH), come nello
+# schema di firma dell'esercitazione sulla cifratura ibrida.
+_PSS = padding.PSS(mgf=padding.MGF1(hashes.SHA256()), salt_length=padding.PSS.MAX_LENGTH)
 _OAEP = padding.OAEP(mgf=padding.MGF1(algorithm=hashes.SHA256()), algorithm=hashes.SHA256(), label=None)
 
 

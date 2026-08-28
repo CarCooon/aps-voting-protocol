@@ -1,0 +1,14 @@
+[project]
+name = "psvote-wp4"
+version = "1.0.0"
+description = "WP4 - implementazione simulata e misura delle prestazioni del protocollo di voto elettronico di WP2"
+requires-python = ">=3.11"
+dependencies = ["cryptography==50.0.1"]
+
+[project.optional-dependencies]
+test = ["pytest==9.1.1"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+addopts = "-q"

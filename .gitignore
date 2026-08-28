@@ -1,0 +1,22 @@
+# Ambienti virtuali Python
+venv/
+.venv/
+env/
+
+# Bytecode e cache di Python
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.python-version
+
+# IDE / editor
+.idea/
+*.iml
+.vscode/
+
+# File di sistema
+.DS_Store
+Thumbs.db
+
+# NB: artifacts/ e' versionato di proposito (output dei benchmark, parte della consegna).

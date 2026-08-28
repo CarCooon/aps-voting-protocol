@@ -1,7 +1,9 @@
 """Merkle Tree sui fingerprint F_j, con prove di inclusione in tempo/spazio O(log n).
 
-Foglia:  H(F_j).   Nodo interno:  H(figlio_sx || figlio_dx).   Se un livello ha un
-numero dispari di nodi, l'ultimo viene duplicato.
+Struttura e prove seguono l'implementazione vista nelle esercitazioni del corso:
+foglia  H(F_j),  nodo interno  H(figlio_sx || figlio_dx),  duplicazione
+dell'ultimo nodo se il livello e' dispari, prove con posizioni "left"/"right"
+(sibling individuato con lo XOR dell'ultimo bit dell'indice).
 
 Con la duplicazione dell'ultimo nodo uno stesso valore di radice puo' derivare da
 liste di foglie di lunghezza diversa: questa ambiguita' e' chiusa a monte dal

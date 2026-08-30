@@ -1,7 +1,7 @@
 [project]
-name = "psvote-wp4"
+name = "aps-voting-protocol"
 version = "1.0.0"
-description = "WP4 - implementazione simulata e misura delle prestazioni del protocollo di voto elettronico di WP2"
+description = "Implementazione simulata e misura delle prestazioni di un protocollo di voto elettronico verificabile"
 requires-python = ">=3.11"
 dependencies = ["cryptography==50.0.1"]
 

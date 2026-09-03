@@ -1,0 +1,7 @@
+messaggio,byte,note
+"M (pacchetto di voto, elettore -> AE)",1156,media su 60; id_elezione='unisa-bench'
+"R (ricevuta firmata, AE -> elettore)",364,
+Record_0 / Params (blocco genesi),673,
+Record_j (blocco urna),390,
+Record_chiusura,353,
+Merkle proof (n=60),192,32 B per hash fratello; cresce come ceil(log2 n)

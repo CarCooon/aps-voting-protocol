@@ -134,8 +134,9 @@ fallisce, `PR_v` non e' cancellato); verifica universale con conteggio dei recor
 per tipo; scrutinio black-box (plaintext mai memorizzati ne' ricollegati a `F_j`).
 
 Controllo amministrativo `k_totale <= C_p emessi` (`AuthServer.issued_count()`,
-esercitato in `happy_path`): e' un riscontro da auditor che dispone di entrambi i
-conteggi, non un controllo del Verificatore Pubblico (che violerebbe la
+esercitato in `happy_path`): e' un controllo amministrativo istituzionale
+post-elettorale, non un meccanismo crittografico accessibile al Verificatore
+Pubblico (che richiederebbe accesso a entrambi i conteggi, violando la
 non-collusione SA/AE).
 
 ### Simulato / astratto - motivazione e rischio residuo
@@ -164,8 +165,8 @@ un'assunzione organizzativa.
 
 1. **Schema di firma.** `Sign_PR(H(x))` e' istanziato con **RSA-PSS**
    (`MGF1-SHA256`, `salt_length = padding.PSS.MAX_LENGTH`), la forma
-   probabilistica dell'hash-and-sign visto a lezione; il salt di lunghezza massima
-   segue lo schema di firma dell'esercitazione sulla cifratura ibrida. SHA-256 e'
+   probabilistica dell'hash-and-sign; il salt di lunghezza massima massimizza
+   l'entropia della firma. SHA-256 e'
    l'hash interno, applicato una sola volta: si passa `wire(x)` a
    `private_key.sign(..., PSS, SHA256)`. La firma e' comunque lunga 256 byte
    (dimensione del modulo RSA-2048).
